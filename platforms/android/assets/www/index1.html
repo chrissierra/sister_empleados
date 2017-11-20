@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="./src/css/index_css.css">
+    <title>sister_erp</title>
+    <meta name="description" content="rrhh">
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl8fvOJNeQev8HvvT02caTJI6k8K75pPo&libraries=geometry"
+    async defer></script>-->
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="import" href="./src/modulos/header.html">
+    <script src="./js/index.js"></script>
+
+  </head>
+  <body unresolved>
+    
+    <app-drawer-layout>
+        <app-drawer swipe-open slot="drawer" >
+          <div  style="height: 100%; overflow: auto;background-color:#f5f5f5">
+          <app-toolbar class="navToolbar" ><h2>Menú</h2>    </app-toolbar> 
+<!--   Content lateral   -->
+<div role="listbox" >
+    <paper-item><a href="./liquidaciones.html" style="text-decoration:none; color:black">Liquidaciones</a> </paper-item>
+    <paper-item><a href="./contrato.html" style="text-decoration:none;color:black">Contrato</a></paper-item>
+    <paper-item><a href="./asistencia.html" style="text-decoration:none;color:black">Asistencia</a></paper-item>
+  </div>
+ </div>
+<!--   Content lateral   -->
+        </app-drawer>
+
+
+        <app-header-layout>
+          <app-header class="mainHeader" condenses fixed effects="resize-title blend-background waterfall" slot="header">
+            <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <h5 condensed-title>SISTER ERP <i>&nbsp; Sesión empleados</i></h5>
+              <!--   Content paper dialog   -->
+              <paper-icon-button raised onclick="animated.open()" icon="touch-app"></paper-icon-button>
+              <!--    Content paper dialog    -->
+
+
+              <paper-menu-button vertical-align="top" horizontal-align="right"   >
+                  <paper-icon-button icon="more-vert" slot="dropdown-trigger" alt="bottom align" ></paper-icon-button>
+                  <paper-listbox slot="dropdown-content">
+                    <paper-item id="nombre_trabajador">hola</paper-item>
+                    <paper-item id="configuracion">Configuración</paper-item>
+                    <paper-item id="ayuda">Ayuda</paper-item>
+                  </paper-listbox>
+                </paper-menu-button>
+
+              
+            </app-toolbar>
+            <app-toolbar class="tall">
+              <h1 main-title>SISTER ERP</h1>
+            </app-toolbar>
+          </app-header>
+ <!--   Content page   -->
+ <div class="containerz" id="contenedor">
+
+ <paper-card heading="Liquidaciones" alt="Emmental">
+  <div class="card-content">
+    Desde tu perfil podrás visualizar y descargar todas tus liquidaciones de sueldo. 
+    Presiona en descargar para obtener tu última liquidación de sueldo. 
+    Si presionas en liquidaciones! podrás explorar todas tus liquidaciones.
+
+  </div>
+  <div class="card-actions">
+    <paper-button>Descargar</paper-button>
+    <paper-button>Liquidaciones!</paper-button>
+  </div>
+</paper-card>
+
+<paper-card heading="Contrato" alt="Emmental">
+    <div class="card-content">
+      Desde tu perfil podrás visualizar y descargar todas tus liquidaciones de sueldo. 
+      Presiona en descargar para obtener tu última liquidación de sueldo. 
+      Si presionas en liquidaciones! podrás explorar todas tus liquidaciones.
+  
+    </div>
+    <div class="card-actions">
+      <!--<paper-button>Descargar</paper-button>-->
+      <paper-button>Liquidaciones!</paper-button>
+    </div>
+  </paper-card>
+</div> 
+
+<div class="containerz" id="contenedor">
+  <paper-card heading="Marcaje" alt="Emmental">
+      <div class="card-content">
+        Podrás marcar entrada y salida en tu lugar de trabajo desde tu celular. 
+      </div>
+      <div class="card-actions">
+        <paper-button>Marcar</paper-button>
+        <paper-button>Visualizar asistencia</paper-button>
+      </div>
+    </paper-card>
+
+    <paper-card heading="Consultas" alt="Emmental">
+        <div class="card-content">
+          Tienes habilitado un chat con un especialista en recursos humanos que te orientará en todas tus inquietudes.
+        </div>
+        <div class="card-actions">
+          <paper-button>Chatear</paper-button>
+          
+        </div>
+      </paper-card>
+
+
+</div>
+
+ <!--   Content page   -->
+        </app-header-layout>
+      </app-drawer-layout>
+
+
+
+
+      <paper-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+          <h2 id="disponiendo_fecha">Marca tu asistencia</h2>
+          <hr>
+          <paper-listbox>
+              <paper-item id="switch_entrada_item"><paper-toggle-button invalid id="switch_entrada">Entrada</paper-toggle-button></paper-item>
+              <paper-item id="switch_salida_item"><paper-toggle-button invalid id="switch_salida">Salida</paper-toggle-button></paper-item>
+              
+            </paper-listbox>
+
+
+
+            <div class="buttons">
+                  <paper-button>Más Info...</paper-button>
+                  <paper-button dialog-dismiss>Cancelar</paper-button>
+                  <paper-button dialog-confirm autofocus>Listo</paper-button>
+                </div>
+        </paper-dialog>
+        <paper-toast id="toast_fuera_coordenada" text="Debes llegar a tu lugar de trabajo primero para marcar la entrada."></paper-toast>
+        <paper-toast id="toast" text="Aún no has marcado entrada. Marca primero la entrada."></paper-toast>
+<style>
+.containerz{
+flex-wrap: wrap;
+ display:flex;
+ flex-direction: row;
+ 
+ 
+}
+
+paper-card{
+            align-self: auto;
+            margin:15px;
+           min-width: 98%;
+          
+          }
+.card-actions{
+  background-color: #efebeb;
+ 
+}
+
+
+</style>
+  </body>
+  <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="./src/js/funciones_varias_asistencia.js"></script>
+
+  <script src="./src/js/entrada.js"></script>
+  <script src="./src/js/funcion_salida.js"></script>
+  <script src="./src/js/funcion_loading.js"></script>
+</html>
